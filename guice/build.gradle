@@ -1,0 +1,18 @@
+configurations {
+    provided
+}
+
+dependencies {
+    compile "com.google.inject:guice:$guice"
+
+    provided "org.projectlombok:lombok:$lombok"
+
+    testCompile "org.fungsi:fungsi-core:$fungsi"
+}
+
+sourceSets {
+    main { compileClasspath += configurations.provided }
+    test { compileClasspath += configurations.provided }
+}
+
+idea { module { scopes.PROVIDED.plus += configurations.provided } }
